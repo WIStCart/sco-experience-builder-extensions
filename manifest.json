@@ -1,0 +1,7 @@
+{
+  "name": "sco-experience-builder-extensions",
+  "type": "exb-web-extension-repo",
+  "description": "The Wisconsin State Cartographer's Office experience builder extesions repository.",
+  "copyright": "",
+  "license": "https://spdx.org/licenses/GPL-3.0-or-later.html"
+}

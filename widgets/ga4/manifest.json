@@ -1,0 +1,19 @@
+{
+  "name": "ga4",
+  "label": "Google Analytics",
+  "type": "widget",
+  "version": "1.11.0",
+  "exbVersion": "1.11.0",
+  "author": "Wisconsin State Cartographer's Office - Hayden Elza",
+  "description": "Add google analytics to your experience builder application.",
+  "copyright": "",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "properties": {},
+  "translatedLocales": [
+    "en"
+  ],
+  "defaultSize": {
+    "width": 400,
+    "height": 300
+  }
+}

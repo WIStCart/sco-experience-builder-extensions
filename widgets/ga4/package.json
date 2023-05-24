@@ -1,0 +1,17 @@
+{
+  "name": "google-analytics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wisconsin State Cartographer's Office - Hayden Elza",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "dependencies": {
+    "react-ga4": "^2.1.0"
+  }
+}
