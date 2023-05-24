@@ -22,6 +22,7 @@ export default function Setting(props: AllWidgetSettingProps<IMConfig>): React.R
   }
 
   const parseTextArea = (value)=>{try{ return JSON.parse(value)}catch{return null}}
+  
   const toTextAreaFormat = (values)=>{ 
     if (values) {
       try {
@@ -48,10 +49,6 @@ export default function Setting(props: AllWidgetSettingProps<IMConfig>): React.R
     });
   }
 
-  console.log("groupedLayerTitles", props.config.groupedLayerTitles)
-  console.log("hiddenLayerTitles", props.config.hiddenLayerTitles)
-
-  
   return (
     <div className="p-2">
       <div className="mb-3">

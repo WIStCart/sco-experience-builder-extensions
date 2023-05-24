@@ -5,8 +5,6 @@ import { IMConfig } from '../config'
 import GroupLayer from "esri/layers/GroupLayer";
 import LayerList from "esri/widgets/LayerList";
 import Slider from "esri/widgets/Slider";
-import Layer from "esri/layers/Layer";
-import Color from "esri/Color";
 
 import "./style.scss";
 
@@ -17,13 +15,6 @@ export default function (props: AllWidgetProps<IMConfig>) {
 
   const [jimuMapView, setJimuMapView] = useState<JimuMapView>(null);
   const [layerListWidget, setLayerListWidget] = useState<LayerList>(null);
-  const [featureLayer, setFeatureLayer] = useState<Layer>();
-  const [originalOutlineColor, setOriginalOutlineColor] = useState<Color>();
-
-  // Settings
-  // const groupName = "V8 Parcels";
-  // const groupedLayerTitles = ["V8 Parcels (Features)", "V8 Statewide Parcels"];
-  // const props.config. = ["County Boundaries Vector Tiles"];
 
   async function main(jmv:JimuMapView) {
 
@@ -39,13 +30,13 @@ export default function (props: AllWidgetProps<IMConfig>) {
       // Fill is the same as the slider value
       const fillAlpha = value;
 
-      // Blend black and original outline color based on slider value
-      const black = new Color("#000000");
-      const outlineColor = Color.blendColors(black, originalOutlineColor, value);
+      // Use slider to scale outline width
+      const outlineScaleFactor = 3
+      const outlineWidth = originalOutlineWidth + ((1 - value) * outlineScaleFactor * originalOutlineWidth);
 
       // Save new values
       renderer.symbol.color.a = fillAlpha;
-      renderer.symbol.outline.color = outlineColor;
+      renderer.symbol.outline.width = outlineWidth;
       featureLayer.renderer = renderer;
     }
 
@@ -94,17 +85,15 @@ export default function (props: AllWidgetProps<IMConfig>) {
 
     // Get feature layer that will have the renderer controlled
     // It should be the first layer in the props.config.groupedLayerTitles
-    let featureLayer = view.map.layers.find(function(layer){
+    const featureLayer = view.map.layers.find(function(layer){
       return layer.title === props.config.groupedLayerTitles[0];
     });
-    // setFeatureLayer(featureLayer);
 
     // Also get a copy of the original outline color of featureLayer
-    let originalOutlineColor = featureLayer?.renderer.symbol.outline.color.clone();
-    // setOriginalOutlineColor(originalOutlineColor);
+    const originalOutlineWidth = featureLayer?.renderer.symbol.outline.width;
 
     // Reset group layer if it already exists
-    let oldGroupLayer = view.map.layers.find(function(layer){ 
+    const oldGroupLayer = view.map.layers.find(function(layer){ 
       return layer.title === props.config.groupName;
     });
     if (oldGroupLayer) {
@@ -118,9 +107,8 @@ export default function (props: AllWidgetProps<IMConfig>) {
     });
 
     // Create group layer and add to map
-    let groupLayer = new GroupLayer({
-      title: props.config.groupName,
-      // listMode: "hide-children"
+    const groupLayer = new GroupLayer({
+      title: props.config.groupName
     });
 
     // Add grouped layers to group layer
@@ -169,8 +157,6 @@ export default function (props: AllWidgetProps<IMConfig>) {
       // Destroy layer list widget when mapview changes (e.g., changing map in settings)
       layerListWidget.destroy();
       setLayerListWidget(null);
-      // groupLayer.destroy();
-      // setGroupLayer(null);
     }
 
     setJimuMapView(jmv);
