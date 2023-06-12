@@ -62,14 +62,15 @@ export default function (props: AllWidgetProps<{}>) {
           values: [1],
           visibleElements: {
             labels: true,
-            rangeLabels: true
+            rangeLabels: true,
+
           }
         });
 
         item.panel = {
-          content: slider,
+          content: [slider, '<span style="text-align:center;display:block;">Layer Transparency</span>'],
           className: "esri-icon-sliders-horizontal",
-          title: "Fill Opacity"
+          title: "Layer Transparency"
         };
 
         // What to do when slider is moved
