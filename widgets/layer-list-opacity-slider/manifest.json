@@ -1,0 +1,20 @@
+{
+  "name": "layer-list-opacity-slider",
+  "label": "Layer List - Opacity Slider",
+  "type": "widget",
+  "version": "1.11.0",
+  "exbVersion": "1.11.0",
+  "author": "Wisconsin State Cartographer's Office - Hayden Elza",
+  "description": "Use a query string to select layers to be grouped together. The group layer will have an opacity slider.",
+  "copyright": "",
+  "dependency": "jimu-arcgis",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "properties": {},
+  "translatedLocales": [
+    "en"
+  ],
+  "defaultSize": {
+    "width": 500,
+    "height": 300
+  }
+}
