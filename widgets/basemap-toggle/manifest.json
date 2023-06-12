@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "exbVersion": "1.11.0",
   "author": "Wisconsin State Cartographer's Office - Hayden Elza",
-  "description": "Use a query string to select layers to be grouped together. The group layer will have an opacity slider.",
+  "description": "A simple widget to switch basemaps.",
   "copyright": "",
   "dependency": "jimu-arcgis",
   "license": "https://www.gnu.org/licenses/gpl-3.0.html",
