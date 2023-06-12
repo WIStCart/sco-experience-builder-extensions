@@ -2,7 +2,7 @@
   "name": "ga4",
   "label": "Google Analytics",
   "type": "widget",
-  "version": "1.11.0",
+  "version": "1.0.0",
   "exbVersion": "1.11.0",
   "author": "Wisconsin State Cartographer's Office - Hayden Elza",
   "description": "Add google analytics to your experience builder application.",
