@@ -1,10 +1,8 @@
 import { React } from 'jimu-core';
 import { MapWidgetSelector } from 'jimu-ui/advanced/setting-components';
 import { AllWidgetSettingProps } from 'jimu-for-builder';
-import { IMConfig } from '../config'
 
-
-export default function Setting(props: AllWidgetSettingProps<IMConfig>): React.ReactElement {
+export default function Setting(props: AllWidgetSettingProps<{}>): React.ReactElement {
 
   const onMapSelected = (useMapWidgetIds: string[]) => {
     props.onSettingChange({
