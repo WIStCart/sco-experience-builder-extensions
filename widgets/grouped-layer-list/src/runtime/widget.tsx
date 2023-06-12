@@ -1,8 +1,6 @@
 import { React, AllWidgetProps } from 'jimu-core';
 import { JimuMapViewComponent, JimuMapView } from 'jimu-arcgis';
-import { IMConfig } from '../config'
 
-import GroupLayer from "esri/layers/GroupLayer";
 import LayerList from "esri/widgets/LayerList";
 import Slider from "esri/widgets/Slider";
 
@@ -10,7 +8,7 @@ import "./style.scss";
 
 const { useState, useRef, useEffect } = React;
 
-export default function (props: AllWidgetProps<IMConfig>) {
+export default function (props: AllWidgetProps<{}>) {
   const apiWidgetContainer = useRef<HTMLDivElement>();
 
   const [jimuMapView, setJimuMapView] = useState<JimuMapView>(null);
@@ -21,37 +19,42 @@ export default function (props: AllWidgetProps<IMConfig>) {
     await jmv.view.when();
     const view = jmv.view
 
-    // Update renderer of feature layer
-    function updateRenderer(value) {
+    // Custom Parameters (set in webmap)
+      // showInLayerList [true/false]
+      // hideChildren [true/false]
+      // opacitySlider [true/false]
 
-      // Get a copy of the renderer
-      const renderer = featureLayer.renderer.clone();
+    // Update renderer of feature layer
+    function updateRenderer(value, layer) {
 
       // Fill is the same as the slider value
       const fillAlpha = value;
 
       // Use slider to scale outline width
       const outlineScaleFactor = 3
-      const outlineWidth = originalOutlineWidth + ((1 - value) * outlineScaleFactor * originalOutlineWidth);
+      const outlineWidth = outlineWidths[layer.title] + ((1 - value) * outlineScaleFactor * outlineWidths[layer.title]);
 
       // Save new values
-      renderer.symbol.color.a = fillAlpha;
-      renderer.symbol.outline.width = outlineWidth;
-      featureLayer.renderer = renderer;
+      layer.renderer.symbol.color.a = fillAlpha;
+      layer.renderer.symbol.outline.width = outlineWidth;
     }
 
+    // Actions on layer list items
     async function defineActions(event) {
-				
+      
       const item = event.item;
       await item.layer.when();
-  
-      // Hide hidden layers
-      if (props.config.hiddenLayerTitles.includes(item.title) || props.config.groupedLayerTitles.includes(item.title) ) {
+
+      // Hide layers or children
+      if (item.layer.customParameters?.showInLayerList === "false") {
         item.hidden = true;
       }
-  
+      if (item.layer.customParameters?.hideChildren === "true") {
+        item.layer.listMode = "hide-children";
+      }
+
       // Create slider feature layer
-      if (item.title === props.config.groupedLayerTitles[0]) {
+      if (item.layer.customParameters?.opacitySlider === "true") {
         const slider = new Slider({
           min: 0,
           max: 1,
@@ -62,58 +65,28 @@ export default function (props: AllWidgetProps<IMConfig>) {
             rangeLabels: true
           }
         });
-  
+
         item.panel = {
           content: slider,
           className: "esri-icon-sliders-horizontal",
           title: "Fill Opacity"
         };
-  
+
         // What to do when slider is moved
         slider.on("thumb-drag", (event) => {
           const { value } = event;
-          updateRenderer(value);
+          updateRenderer(value, item.layer);
         });
       }
-  
-      // Hide children of tile layer
-      if (item.title === props.config.groupedLayerTitles[1]) {
-        item.layer.listMode = "hide-children";
+    }
+
+    // Get outline widths of layers with opacity slider
+    let outlineWidths = {};
+    view.map.allLayers.map((layer)=>{
+      if(layer.customParameters?.opacitySlider === "true") {
+        outlineWidths[layer.title] = layer.renderer.symbol.outline.width;
       }
-  
-    }
-
-    // Get feature layer that will have the renderer controlled
-    // It should be the first layer in the props.config.groupedLayerTitles
-    const featureLayer = view.map.layers.find(function(layer){
-      return layer.title === props.config.groupedLayerTitles[0];
     });
-
-    // Also get a copy of the original outline color of featureLayer
-    const originalOutlineWidth = featureLayer?.renderer.symbol.outline.width;
-
-    // Reset group layer if it already exists
-    const oldGroupLayer = view.map.layers.find(function(layer){ 
-      return layer.title === props.config.groupName;
-    });
-    if (oldGroupLayer) {
-      view.map.layers.addMany(oldGroupLayer.removeAll())
-      oldGroupLayer.destroy();
-    }
-    
-    // Get grouped layers based on list
-    const groupedLayers = view.map.layers.filter(function(layer){
-      return props.config.groupedLayerTitles.includes(layer.title);
-    });
-
-    // Create group layer and add to map
-    const groupLayer = new GroupLayer({
-      title: props.config.groupName
-    });
-
-    // Add grouped layers to group layer
-    view.map.layers.add(groupLayer)
-    groupLayer.layers = groupedLayers.map(layer => layer);
 
     if (!layerListWidget) {
       // Create dummy DOM to replace with layer list
@@ -135,7 +108,7 @@ export default function (props: AllWidgetProps<IMConfig>) {
   }
   
   useEffect(() => {
-    if (jimuMapView && props.config.groupName && props.config.groupedLayerTitles) {
+    if (jimuMapView) {
 
       main(jimuMapView)
 
