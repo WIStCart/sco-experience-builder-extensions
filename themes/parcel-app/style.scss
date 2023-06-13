@@ -1,0 +1,13 @@
+// Map View Widget: hide number of selected panel from slection tool
+.exbmap-ui-tool-panel {
+  .jimu-btn {
+    display: none;
+  }
+}
+
+// Coordinates widget: hide the CRS selector to simplify interface
+.jimu-widget-coordinates {
+    button[title="Select the output coordinate system"] {
+      display:none
+    }
+}

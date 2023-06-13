@@ -1,0 +1,15 @@
+{
+  "name": "parcel-app",
+  "label": "Parcel App Theme",
+  "type": "theme",
+  "thumbnails ": [],
+  "version": "1.0.0",
+  "exbVersion": "1.11.0",
+  "author": "Wisconsin State Cartographer's Office - Hayden Elza",
+  "description": "A theme for the Wisconsin Parcel App.",
+  "copyright": "",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "translatedLocales": [
+    "en"
+  ]
+}
