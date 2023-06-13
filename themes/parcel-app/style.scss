@@ -1,3 +1,7 @@
+// --------------
+// Hide elements
+// --------------
+
 // Map View Widget: hide number of selected panel from slection tool
 .exbmap-ui-tool-panel {
   .jimu-btn {
@@ -11,6 +15,12 @@
       display:none
     }
 }
+
+
+
+// ---------------
+// Modify Elements
+// ---------------
 
 // Search Tips Panel: place panel below modal on initial open
 .modal-open > .floating-panel {
