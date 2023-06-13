@@ -11,3 +11,8 @@
       display:none
     }
 }
+
+// Search Tips Panel: place panel below modal on initial open
+.modal-open > .floating-panel {
+  z-index: 999 !important;
+}
