@@ -144,7 +144,7 @@ export default function (props: AllWidgetProps<{}>) {
         onActiveViewChange={onActiveViewChange}
       />
 
-      <div id="grouped-layer-list" ref={apiWidgetContainer} />
+      <div id="layer-list-opacity-slider" ref={apiWidgetContainer} />
     </div>
   )
 }

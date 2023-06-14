@@ -70,7 +70,7 @@ export default function (props: AllWidgetProps<{}>) {
         onActiveViewChange={onActiveViewChange}
       />
 
-      <div id="grouped-layer-list" ref={apiWidgetContainer} />
+      <div id="basemap-toggle" ref={apiWidgetContainer} />
     </div>
   )
 }
