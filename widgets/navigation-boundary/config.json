@@ -1,0 +1,10 @@
+{
+  "xmin": -93,
+  "ymin": 42.4,
+  "xmax": -86.8,
+  "ymax": 47,
+  "srsWkid": 4326,
+  "initialZoom": 7,
+  "minZoom": 6,
+  "rotationEnabled": false
+}
