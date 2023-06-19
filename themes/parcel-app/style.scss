@@ -54,15 +54,10 @@
 }
 
   // Address
-  div[aria-label='"Street" portion of the address ONLY'] {
+  div[aria-label='Address'] {
     @extend %search-tips;
     &::after {
-      content: "\2B9EStreet types are fully spelled out \a\0009\2022  RD = ROAD \a\0009\2022  ST = STREET \a\0009\2022  XING = CROSSING \a\a\2B9EHighway annotation (county, state and U.S.) varies from one county to the next.  Highway annotation has been standardized for the data in this application and will be in one of the following formats: \a\0009\2022  CTH | STH | USH";
-    }
-
-    // Show label
-    .form-title div {
-      display: initial;
+      content: '\2B9E LEAVE OUT the city/town/village name, state and zipcode. (e.g., "111 MAIN STREET")\a\2B9EStreet types are fully spelled out \a\0009\2022  RD = ROAD \a\0009\2022  ST = STREET \a\0009\2022  XING = CROSSING \a\a\2B9EHighway annotation (county, state and U.S.) varies from one county to the next.  Highway annotation has been standardized for the data in this application and will be in one of the following formats: \a\0009\2022  CTH | STH | USH';
     }
   }
 
