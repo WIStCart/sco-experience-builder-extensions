@@ -32,6 +32,8 @@
 // Query Buttons: add drop shadow to there is better visual hierarchy
 .runtime-query__query-list button.jimu-btn {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 // Expression Hints
