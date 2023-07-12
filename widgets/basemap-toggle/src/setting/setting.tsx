@@ -27,7 +27,7 @@ export default function Setting(props: AllWidgetSettingProps<IMConfig>): React.R
         <MapWidgetSelector onSelect={onMapSelected} useMapWidgetIds={props.useMapWidgetIds} />
       </div>
       <label>
-        Base Map Name:{' '}
+        Basemap Name:{' '}
         <TextInput
             className="mb-3"
             value={ props.config.basemap }
