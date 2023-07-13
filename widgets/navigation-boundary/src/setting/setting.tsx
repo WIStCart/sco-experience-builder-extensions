@@ -35,7 +35,7 @@ export default function Setting(props: AllWidgetSettingProps<IMConfig>): React.R
         />
       </label>
       <label>
-        y min:{' '}
+        Y min:{' '}
         <NumericInput 
           defaultValue={ props.config.ymin }
           onChange={ (value)=>{onPropChange('ymin', value)} } 
