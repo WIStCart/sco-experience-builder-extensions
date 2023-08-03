@@ -2,7 +2,7 @@
 // Hide elements
 // --------------
 
-// Map View Widget: hide number of selected panel from slection tool
+// Map View Widget: hide number of selected panel from selection tool
 .exbmap-ui-tool-panel {
   .jimu-btn {
     // display: none;
@@ -59,7 +59,7 @@
   div[aria-label='Address'] {
     @extend %search-tips;
     &::after {
-      content: '\2B9E LEAVE OUT the city/town/village name, state and zipcode. (e.g., "111 MAIN STREET")\a\2B9EStreet types are fully spelled out \a\0009\2022  RD = ROAD \a\0009\2022  ST = STREET \a\0009\2022  XING = CROSSING \a\a\2B9EHighway annotation (county, state and U.S.) varies from one county to the next.  Highway annotation has been standardized for the data in this application and will be in one of the following formats: \a\0009\2022  CTH | STH | USH';
+      content: '\2B9E  LEAVE OUT the city/town/village name, state and zipcode. (e.g., "111 MAIN STREET")\a\a\2B9E  Street types are fully spelled out \a\0009\2022  RD = ROAD \a\0009\2022  ST = STREET \a\0009\2022  XING = CROSSING \a\a\2B9E  Prefixes that precede the street name are abbreviated if they are cardinal directions (e.g., "2554 E JOHNSON STREET" is the standardized way that you will find EAST JOHNSON STREET in the database) \a\a\2B9E  Highway annotation (county, state and U.S.) varies from one county to the next.  Highway annotation has been standardized for the data in this application and will be in one of the following formats: \a\0009\2022  CTH | STH | USH \a\a\2B9E  For more hints on how to type your search, see the "Search Tips" box on the right portion of your screen (the light bulb icon)';
     }
   }
 
@@ -67,7 +67,7 @@
   div[aria-label='Owner Name'] {
     @extend %search-tips;
     &::after {
-      content: '\2B9E  You can type the percent symbol “%” as a wildcard for elements of the search you do not know, like an unknown middle initial.\a\2022  e.g., to search for JOHN SMITH with an unknown middle initial, type JOHN % SMITH\a\2022  e.g., to search for JOHN R & SUE M SMITH, type JOHN % SUE % SMITH\a\a\2B9E  The percent "%" wildcard means that any number of characters are acceptable in its place while the underscore "_" wildcard will represent one and only one character in the query.';
+      content: '\2B9E  You can type the percent symbol “%” as a wildcard for elements of the search you do not know, like an unknown middle initial.\a\2022  e.g., to search for JOHN SMITH with an unknown middle initial, type JOHN % SMITH\a\2022  e.g., to search for JOHN R & SUE M SMITH, type JOHN % SUE % SMITH\a\a\2B9E  The percent "%" wildcard means that any number of characters are acceptable in its place while the underscore "_" wildcard will represent one and only one character in the query.\a\a\2B9E  For more hints on how to type your search, see the "Search Tips" box on the right portion of your screen (the light bulb icon)';
     }
   }
 
@@ -75,6 +75,6 @@
   div[aria-label='ParcelID'] {
     @extend %search-tips;
     &::after {
-      content: '\2B9E  For parcel ID search to yield results in this statewide database, you will need to search for the parcel ID EXACTLY as it appears in the native (county) data. \a\a\2BC8  Parcel ID can take any of the following formats: \a\0009\2022  001-0122-00000 \a\0009\2022  0000000000000 \a\0009\2022  10-00000 \a\0009\2022  110.0011.001 \a\0009\2022  01 11 00 1 \a\0009\2022  001-111.A \a\0009\2022  001 1111.002 \a\a\2B9E  If you know the general area in which you are searching for a parcel, try clicking on a few parcels in that area to see how the parcel IDs are formatted. \a\a\2B9E  Parcel ID format varies across local governments. In this database, parcel ID can be formatted with special characters like dashes, periods, and spaces. To locate a particular parcel in a different database, you may need to either include or exclude special characters like dashes. End-users can find an explanation of parcel ID formats from the Wisconsin Department of Revenue\'s webpage on State of Wisconsin Municipality Parcel Formats. \a\a\2B9E Duplicate parcel IDs can exist across multiple counties. If your search yields multiple records, you will need to select the record that applies to your county of interest, by scrolling down to it in the search results box and clicking it.';
+      content: '\2B9E  For Parcel ID search to yield results in this statewide database, you will need to search for the Parcel ID EXACTLY as it appears in the native (county) data. \a\a\2BC8  Parcel ID can take any of the following formats: \a\0009\2022  001-0122-00000 \a\0009\2022  0000000000000 \a\0009\2022  10-00000 \a\0009\2022  110.0011.001 \a\0009\2022  01 11 00 1 \a\0009\2022  001-111.A \a\0009\2022  001 1111.002 \a\a\2B9E  If you know the general area in which you are searching for a parcel, try clicking on a few parcels in that area to see how the parcel IDs are formatted. \a\a\2B9E  Duplicate Parcel IDs can exist across multiple counties. If your search yields multiple records, you will need to select the record that applies to your county of interest, by scrolling down to it in the search results box and clicking it.\a\a\2B9E  For more hints on how to type your search, see the "Search Tips" box on the right portion of your screen (the light bulb icon)';
     }
   }
