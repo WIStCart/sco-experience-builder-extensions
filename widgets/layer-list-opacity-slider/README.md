@@ -1,5 +1,7 @@
 # Layer List Opacity Slider
 
+<img width="350" alt="image" src="https://github.com/WIStCart/sco-experience-builder-extensions/assets/10215346/9b29cfd6-f9cf-4967-95fc-ee10d1f0e5b4">
+
 This widget was made specifically for the [Wisconsin Statewide Parcels Application](https://maps.sco.wisc.edu/Parcels/) but is flexible enough to be used in any application where it fits your needs. The widget creates a simple layer list that only shows layers visible at the current scale with an opacity slider for specific layers.
 
 ## Settings in Builder
