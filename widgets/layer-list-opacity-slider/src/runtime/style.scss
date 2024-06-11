@@ -1,14 +1,17 @@
 #layer-list-opacity-slider {
 
-  .esri-layer-list__item {
-    border: none;
+  calcite-list-item {
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    margin-block-start: 0;
   }
 
-  .esri-layer-list__item-toggle {
+  calcite-action.esri-layer-list__visible-toggle {
     display: none;
   }
 
-  .esri-layer-list__item--invisible-at-scale {
+  calcite-list-item:has(> .esri-layer-list__item--invisible-at-scale) {
     display: none;
   }
 
