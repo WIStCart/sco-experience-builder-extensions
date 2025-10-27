@@ -69,7 +69,7 @@ export default function (props: AllWidgetProps<{}>) {
 
         item.panel = {
           content: [slider, '<span style="text-align:center;display:block;">Layer Transparency</span>'],
-          className: "esri-icon-sliders-horizontal",
+          icon: "sliders-horizontal",
           title: "Layer Transparency"
         };
 

@@ -11,7 +11,7 @@
     display: none;
   }
 
-  calcite-list-item:has(> .esri-layer-list__item--invisible-at-scale) {
+  calcite-list-item[unavailable] {
     display: none;
   }
 
